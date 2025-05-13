@@ -7,7 +7,6 @@ from pathlib import Path
 SEED = 121
 np.random.seed(SEED)
 
-# Tamaños objetivo
 MAX_TRAIN = 200000
 MAX_TEST = 60000
 MAX_VAL = 30000
