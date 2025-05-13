@@ -311,9 +311,9 @@ def main():
     print(f"Ítems cargados en metadata: {len(dataSet)} (de {len(valid_item_ids)} ítems en ratings)")
 
     # Verificar que no hay ítems perdidos
-    missing_items = valid_item_ids - set(dataSet['id'].astype(str))
-    if missing_items:
-        print(f"{len(missing_items)} ítems en ratings no tienen metadata (ej: {list(missing_items)[:5]})")
+    items_perdidos = valid_item_ids - set(dataSet['id'].astype(str))
+    if items_perdidos:
+        print(f"{len(items_perdidos)} ítems en ratings no tienen metadata (ej: {list(items_perdidos)[:5]})")
     else:
         print("Todos los ítems en ratings tienen metadata asociada.")
 
