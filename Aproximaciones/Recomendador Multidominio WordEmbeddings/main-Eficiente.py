@@ -16,7 +16,6 @@ N = 200000
 N2 = 1000000
 
 
-# Función para cargar datasets y tomar muestras
 def cargar_datos(movie_csv, book_csv, song_csv, movie_sample_size=1000, book_sample_size=1000,
                          combined_filename='combinedDataSetWE.pkl'):
     # Si el archivo combinado ya existe, simplemente cargarlo
@@ -49,7 +48,6 @@ def cargar_datos(movie_csv, book_csv, song_csv, movie_sample_size=1000, book_sam
     return combined_sample_df
 
 
-# Función para precalcular y guardar embeddings
 def calcular_y_guardar_embeddings(data, model_name='paraphrase-MiniLM-L6-v2', filename='embeddingsWE.pkl'):
     # Si el archivo de embeddings ya existe, simplemente cargarlo
     if os.path.exists(filename):
@@ -231,7 +229,6 @@ def sistema_evaluacion(embeddings_df, train_ratings, test_ratings, top_k=10):
 
     avg_recall = total_recall / debug_stats['successful_evals'] if debug_stats['successful_evals'] > 0 else 0
     avg_auc = total_auc / debug_stats['successful_evals'] if debug_stats['successful_evals'] > 0 else 0
-    # Cálculo de promedio para Recall@3
     avg_recall3 = total_recall3 / debug_stats['successful_evals'] if debug_stats['successful_evals'] > 0 else 0
 
     print("RESULTADOS FINALES:")
