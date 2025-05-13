@@ -21,7 +21,7 @@ def cargar_datos(movie_csv, book_csv, song_csv, combined_filename='combinedDataS
         print("Cargando datos combinados desde el archivo existente")
         return pd.read_pickle(combined_filename)
 
-    print("Cargando y combinando datasets...")
+    print("Cargando y combinando datasets")
     df_movies = pd.read_csv(movie_csv, header=None, names=["id", "main_category", "title", "price", "description"],
                             nrows=N)
     df_books = pd.read_csv(book_csv, header=None, names=["id", "main_category", "title", "price", "description"],
@@ -81,7 +81,7 @@ def calcular_y_guardar_embeddings(data, filename='embeddingsCV.pkl', sparse_file
     vectorizer.fit(sample_data)
 
     for i in (range(0, len(data), batch_size)):
-        batch = data['description'].iloc[i:i + batch_size].astype(str)  # Asegurar que son strings
+        batch = data['description'].iloc[i:i + batch_size].astype(str)
         try:
             batch_embeddings = vectorizer.transform(batch)
             embeddings_list.append(batch_embeddings)
@@ -124,7 +124,7 @@ def recomendar_con_embeddings(titulo, data, embeddings_sparse):
     target_embedding = embeddings_sparse[target_id]
 
     # Calcular similitudes con toda la matriz dispersa
-    print("Calculando similitudes...")
+    print("Calculando similitudes")
     similarities = cosine_similarity(embeddings_sparse, target_embedding).flatten()
     data['similarity'] = similarities
 
