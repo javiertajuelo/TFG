@@ -65,7 +65,7 @@ def create_soup(x):
     return ' '.join(x['keywords']) + ' ' + ' '.join(x['cast']) + ' ' + x['director'] + ' ' + ' '.join(x['genres'])
 
 
-def recomendador_con_CV(dataSet, ratings_train=None, ratings_test=None, n_folds=5, top_k=5, eval_mode=True):
+def sistema_evaluacion(dataSet, ratings_train=None, ratings_test=None, n_folds=5, top_k=5, eval_mode=True):
 
     # Limpieza  de datos
     cantidad_inicial = len(dataSet)
@@ -317,7 +317,7 @@ def main():
     else:
         print("Todos los ítems en ratings tienen metadata asociada.")
 
-    normalized_embeddings, indices, metricas = recomendador_con_CV(dataSet, ratings_train, ratings_test,
+    normalized_embeddings, indices, metricas = sistema_evaluacion(dataSet, ratings_train, ratings_test,
                                                                            eval_mode=True)
 
     titulo = 'Gold Fever'
