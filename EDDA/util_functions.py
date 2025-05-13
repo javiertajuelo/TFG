@@ -28,7 +28,7 @@ def parse_args(parser):
     parser.add_argument('--dataset_path', default='/', type=str, help='dataset path')
     parser.add_argument('--ablation', default='/', type=str, help='ablation')
     parser.add_argument('--tasks', nargs='+', type=str,
-                        default=['Arts', 'Inst', 'Music', 'Pantry', 'Video', 'Luxury'])
+                        default=[])
     parser.add_argument('--pretrain_path', type=str, default=None,
                         help='ID/Path of pretrained multi-task learning model')
     parser.add_argument('--target', type=str, default=None,
