@@ -295,10 +295,10 @@ def main():
     ratings_val = pd.read_csv('MoviesandTV_val.csv', names=['item_id', 'user_id', 'ratings'])
     ratings = pd.concat([ratings_train, ratings_test, ratings_val])
 
-    # 2. Obtener los item_id únicos presentes en ratings
-    valid_item_ids = set(ratings['item_id'].astype(str))  # Convertir a string para evitar discrepancias
+    # Obtener los item_id únicos presentes en ratings
+    valid_item_ids = set(ratings['item_id'].astype(str)) 
 
-    # 3. Cargar SOLO las filas de metadata cuyos IDs están en ratings
+    # Cargar solo las filas de metadata cuyos IDs están en ratings
     # Usar chunks si el metadata es muy grande
     chunks = pd.read_csv(
         '/home/jupyter-tfg2425multidomini-163ed/meta_Movies_and_TV.csv',
@@ -310,14 +310,13 @@ def main():
 
     print(f"Ítems cargados en metadata: {len(dataSet)} (de {len(valid_item_ids)} ítems en ratings)")
 
-    # 4. Verificar que no hay ítems perdidos
+    # Verificar que no hay ítems perdidos
     missing_items = valid_item_ids - set(dataSet['id'].astype(str))
     if missing_items:
         print(f"{len(missing_items)} ítems en ratings no tienen metadata (ej: {list(missing_items)[:5]})")
     else:
         print("Todos los ítems en ratings tienen metadata asociada.")
 
-    # Resto del código (recomendación/evaluación)
     normalized_embeddings, indices, metricas = recomendador_con_CV(dataSet, ratings_train, ratings_test,
                                                                            eval_mode=True)
 
