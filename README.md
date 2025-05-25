@@ -39,7 +39,7 @@ Permiten evaluar cómo afectan estas estrategias al rendimiento de los modelos.
 Incluye los conjuntos de datos usados en la evaluación de los modelos.
 
 #### EDDA
-Modelo de recomendación EDDA. Incluye tanto el modelo de entrenamiento como la implementación de la recomendación para dicho modelo.
+El modelo de recomendación EDDA se encuentra en el siguiente enlace: https://github.com/Stevenn9981/EDDA/tree/main
 
 ## Autores
 - Jaime García Redondo – [Jaigar15](https://github.com/Jaigar15)
